@@ -1,0 +1,56 @@
+#compdef yo ai yoai Yo YO
+
+_yo() {
+  local -a commands tools
+  commands=(
+    'ai:open the YO AI menu'
+    'menu:open the YO AI menu'
+    'list:list registered tools'
+    'status:versions, paths, last used'
+    'doctor:health check the hub'
+    'logs:show launch history'
+    'open:open a tool folder in Finder'
+    'projects:list projects for a tool'
+    'new:create a project and launch'
+    'here:launch a tool in the current directory'
+    'hub:launch a tool in its hub projects folder'
+    'add:register a custom tool'
+    'rm:unregister a custom tool'
+    'remove:unregister a custom tool'
+    'help:show help'
+    'version:show hub version'
+  )
+  tools=(grok gemini claude codex kimi agy)
+
+  local -a tool_dirs
+  if [[ -d "$HOME/ai-hub" ]]; then
+    tool_dirs=($HOME/ai-hub/*(/N:t))
+    for d in $tool_dirs; do
+      [[ $d == bin || $d == lib || $d == completions || $d == logs ]] && continue
+      tools+=($d)
+    done
+    tools=(${(u)tools})
+  fi
+
+  if (( CURRENT == 2 )); then
+    _describe -t commands 'command' commands
+    _describe -t tools 'tool' tools
+    return
+  fi
+
+  case ${words[2]} in
+    logs|open|projects|here|hub)
+      _describe -t tools 'tool' tools
+      ;;
+    new)
+      if (( CURRENT == 3 )); then
+        _describe -t tools 'tool' tools
+      fi
+      ;;
+    *)
+      _files
+      ;;
+  esac
+}
+
+_yo "$@"

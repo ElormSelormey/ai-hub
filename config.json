@@ -1,0 +1,60 @@
+{
+  "brand": "YO AI",
+  "default_workspace": "ask",
+  "tools": [
+    {
+      "id": "grok",
+      "name": "Grok Build",
+      "bin": "grok",
+      "vendor": "xAI",
+      "tagline": "agents, skills, worktrees — the full TUI",
+      "color": "#00bfff",
+      "enabled": true
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini CLI",
+      "bin": "gemini",
+      "vendor": "Google",
+      "tagline": "interactive Gemini, MCP, extensions",
+      "color": "#86cbfe",
+      "enabled": true
+    },
+    {
+      "id": "claude",
+      "name": "Claude Code",
+      "bin": "claude",
+      "vendor": "Anthropic",
+      "tagline": "terminal-native Claude agent",
+      "color": "#d97706",
+      "enabled": true
+    },
+    {
+      "id": "codex",
+      "name": "Codex",
+      "bin": "codex",
+      "vendor": "OpenAI",
+      "tagline": "OpenAI's coding agent in the shell",
+      "color": "#00fbac",
+      "enabled": true
+    },
+    {
+      "id": "kimi",
+      "name": "Kimi Code",
+      "bin": "kimi",
+      "vendor": "Moonshot",
+      "tagline": "the starting point for next-gen agents",
+      "color": "#df95ff",
+      "enabled": true
+    },
+    {
+      "id": "agy",
+      "name": "Antigravity",
+      "bin": "agy",
+      "vendor": "Antigravity",
+      "tagline": "agent CLI with projects and modes",
+      "color": "#ff7092",
+      "enabled": true
+    }
+  ]
+}

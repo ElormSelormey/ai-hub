@@ -1,0 +1,29 @@
+# Runtime & log directories
+logs/
+projects/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Per-tool runtime folders
+agy/logs/
+agy/projects/
+agy/sessions/
+claude/logs/
+claude/projects/
+claude/sessions/
+codex/logs/
+codex/projects/
+codex/sessions/
+gemini/logs/
+gemini/projects/
+gemini/sessions/
+grok/logs/
+grok/projects/
+grok/sessions/
+kimi/logs/
+kimi/projects/
+kimi/sessions/
+
+# Transient handoff context file
+.ai-context.md

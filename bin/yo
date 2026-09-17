@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# YO AI — one command for every AI CLI on this machine.
+set -euo pipefail
+
+export AI_HUB_HOME="${AI_HUB_HOME:-$HOME/ai-hub}"
+HUB_PY="${AI_HUB_HOME}/lib/hub.py"
+
+if [[ ! -f "$HUB_PY" ]]; then
+  echo "yo: hub missing at $HUB_PY" >&2
+  exit 1
+fi
+
+if command -v python3 >/dev/null 2>&1; then
+  PY="$(command -v python3)"
+elif [[ -x /usr/local/bin/python3 ]]; then
+  PY=/usr/local/bin/python3
+else
+  echo "yo: python3 is required" >&2
+  exit 1
+fi
+
+exec "$PY" "$HUB_PY" "$@"
